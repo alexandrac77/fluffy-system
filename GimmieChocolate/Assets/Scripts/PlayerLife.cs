@@ -7,6 +7,7 @@ public class PlayerLife : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
+    [SerializeField] private AudioSource deathSfx;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class PlayerLife : MonoBehaviour
 
     private void Die()
     {
+        deathSfx.Play();
         // Switch to death animation
         animator.SetTrigger("dying");
 

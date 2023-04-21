@@ -9,6 +9,7 @@ public class Collectibles : MonoBehaviour
     public static int collectCounter = 0;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text highscoreText;
+    [SerializeField] private AudioSource collectSfx;
     public int highScore;
     public int score;
 
@@ -37,6 +38,7 @@ public class Collectibles : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Chocolate"))
         {
+            collectSfx.Play();
             Destroy(collision.gameObject);
             collectCounter++;
             //Debug.Log("chocolate: " + collectCounter);
